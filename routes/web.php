@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\DoaController;
+use App\Http\Controllers\JadwalShalatController;
 use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\QuranController;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
@@ -175,3 +178,14 @@ Route::get('/produk/{id}', function ($id) {
  
 
 Route::get('/quotes', [QuoteController::class, 'index']);
+
+Route::resource('/quran', QuranController::class);
+
+Route::resource('/doa', DoaController::class);
+
+Route::get('/jadwal', [JadwalShalatController::class, 'index']);
+Route::get('/jadwal/kabkota', [JadwalShalatController::class, 'kabkota']);
+Route::get('/jadwal/data', [JadwalShalatController::class, 'jadwal']);
+
+
+
